@@ -1,0 +1,23 @@
+[
+  {
+    "document": "constitution",
+    "pages": 222,
+    "total_words": 70727,
+    "total_chars": 440615,
+    "saved_to": "data/extracted\\constitution_raw.json"
+  },
+  {
+    "document": "ppc",
+    "pages": 178,
+    "total_words": 87737,
+    "total_chars": 499544,
+    "saved_to": "data/extracted\\ppc_raw.json"
+  },
+  {
+    "document": "crpc",
+    "pages": 290,
+    "total_words": 103103,
+    "total_chars": 602627,
+    "saved_to": "data/extracted\\crpc_raw.json"
+  }
+]

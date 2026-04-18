@@ -1,0 +1,250 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+
+% Adjust margins
+\geometry{top=1in, bottom=1in, left=1in, right=1in}
+
+\title{LexFusion: RAG for Pakistani Law}
+\author{Minahil Azeem (23L-2598), Ahmed Baig (23L-2629), Abdullah Ahmed (23L-2606)}
+\date{Deliverable 1 \\
+March 18, 2026}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    % University logo
+    \includegraphics[width=0.4\textwidth]{}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{fast.png}
+\end{figure}
+    \vspace{1cm}
+
+    % Title
+    \Huge{\textbf{LexFusion: RAG for Pakistani Law}}
+
+    \vspace{0.5cm}
+
+    % Authors
+    \Large{Minahil Azeem (23L-2598), Ahmed Baig (23L-2629), Abdullah Ahmed (23L-2606)}
+
+    \vfill
+
+    % Date
+    \large{Deliverable 1\\ March 18, 2026}
+
+\end{titlepage}
+
+\newpage
+
+% Abstract
+\begin{abstract}
+This project focuses on the application of Retrieval-Augmented Generation (RAG) techniques to the processing and retrieval of information from large Pakistani legal documents. Specifically, the project explores the Constitution of Pakistan, the Pakistan Penal Code (PPC), and the Criminal Procedure Code (CrPC). The aim is to improve the efficiency and relevance of legal document retrieval, addressing a real-world issue in law research and study. The project emphasizes the use of NLP techniques, embeddings, and RAG for better retrieval and generation of legal information.
+\end{abstract}
+
+\newpage
+
+% Table of contents
+\tableofcontents
+\newpage
+
+
+% Introduction
+\section{Introduction}
+
+\subsection{What is NLP?}
+Natural Language Processing (NLP) is a branch of AI that enables computers to understand, interpret, and generate human language. Applications include machine translation, sentiment analysis, chatbots, information retrieval, text classification, and named entity recognition.
+
+\subsection{What is Retrieval-Augmented Generation (RAG)?}
+RAG combines information retrieval with text generation to produce accurate, context-aware responses. It retrieves relevant data from external sources and uses it to generate meaningful content efficiently.
+
+\subsection{Importance of RAG in Real-World Systems}
+RAG improves content accuracy, generates context-specific responses, handles complex knowledge-intensive tasks, adapts to real-time data, reduces training time, and scales efficiently for large datasets.
+
+\section{Phase 1 — Problem Definition}
+
+\subsection{Problem Statement}
+In the context of legal research in Pakistan, there is a significant challenge in retrieving relevant legal information from extensive legal documents, such as the Constitution of Pakistan, the Pakistan Penal Code (PPC), and the Criminal Procedure Code (CrPC). Traditional methods of keyword-based search often fail to retrieve accurate or comprehensive results, leading to inefficiencies and frustrations for researchers, law students, and legal professionals. This project aims to address this issue by leveraging Retrieval-Augmented Generation (RAG) to improve the retrieval and generation of relevant legal content from these documents.
+
+\subsection{Target Audience}
+The target audience for this project includes:
+\begin{itemize}
+    \item Law students who need to access relevant legal information for their studies.
+    \item Legal researchers who require efficient and accurate retrieval of legal documents.
+    \item The general public, particularly individuals seeking legal information or clarification.
+\end{itemize}
+
+\subsection{AI Justification}
+Traditional keyword-based search techniques are often insufficient for retrieving relevant legal information. These methods rely on exact keyword matches and do not account for the semantic meaning of the query or the context of the document. This can result in incomplete or irrelevant results, especially when the query involves complex legal terminology or ambiguous phrasing.
+
+NLP techniques, when combined with embeddings and Retrieval-Augmented Generation (RAG), offer a more powerful approach. Embeddings enable a deeper semantic understanding of the text, allowing the system to match queries with relevant documents based on meaning rather than simple keyword matches. RAG further enhances this by retrieving the most relevant pieces of information from large legal datasets and generating context-aware responses, improving both the accuracy and completeness of the retrieved legal information.
+
+
+\section{Phase 2 — Data Acquisition \& Preprocessing}
+
+\subsection{Data Collection}
+The dataset for this project consists of three key legal documents:
+\begin{itemize}
+    \item The Constitution of Pakistan
+    \item The Pakistan Penal Code (PPC)
+    \item The Criminal Procedure Code (CrPC)
+\end{itemize}
+
+These documents are initially stored in PDF format. The extraction of text from these PDFs is performed using the Python library \texttt{pdfplumber}, which allows for efficient and accurate extraction of text while preserving the document's structure. The extracted text is then stored in a JSON format, with each page stored as a separate entry to maintain the structure of the original document.
+
+\subsection{Data Cleaning Implementation}
+Data cleaning is a crucial step in preprocessing to ensure the quality of the dataset. The following steps were implemented:
+
+\begin{itemize}
+    \item \textbf{Missing Value Removal:} Any missing or incomplete text data was removed to ensure consistency across the dataset.
+    \item \textbf{Duplicate Removal:} Duplicate entries were identified and removed to avoid redundancy and ensure that each page of the document was represented only once.
+    \item \textbf{Outlier Handling:} Pages containing excessively short or long text were flagged and reviewed for accuracy. Pages with extremely short text were discarded, while longer pages were segmented appropriately.
+    \item \textbf{Noise Removal:} Special characters, formatting issues, and irrelevant whitespace were cleaned up to ensure the text is suitable for further processing.
+\end{itemize}
+
+\subsection{Feature Engineering \& Strategy}
+Text normalization is an essential preprocessing step to standardize the text data:
+\begin{itemize}
+    \item \textbf{Lowercasing:} All text was converted to lowercase to ensure uniformity, as case sensitivity can lead to unnecessary complexity in text processing.
+    \item \textbf{Removing Special Characters:} Special characters such as punctuation marks were removed, as they do not contribute to the semantic meaning of the text.
+\end{itemize}
+
+Scaling was also applied to normalize the word count across documents:
+\[
+\text{Min-Max Scaling Formula:} \quad X_{\text{scaled}} = \frac{X - X_{\text{min}}}{X_{\text{max}} - X_{\text{min}}}
+\]
+Where \(X\) represents the word count, and \(X_{\text{min}}\) and \(X_{\text{max}}\) are the minimum and maximum word counts across all pages, respectively.
+
+These steps are important for machine learning because they ensure that the data is clean, consistent, and suitable for model training.
+
+\subsection{Exploratory Data Analysis (EDA)}
+The following exploratory data analysis (EDA) provides insights into the dataset by analyzing several key aspects including text size, word usage, chunk quality, similarity between chunks, and clustering patterns. The graphs and visualizations below help in understanding the dataset's structure, which is crucial for applying Retrieval-Augmented Generation (RAG) in legal data.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{wordlen.png}
+    \caption{Word Length Distribution: Shows how many words of different lengths appear in the text, helping identify common word sizes.}
+    \label{fig:wordlen}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{charlengtjh.png}
+    \caption{Character Length Distribution: Measures text segments in characters, useful to detect very short or long chunks.}
+    \label{fig:charlength}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{tcd.png}
+    \caption{Token Count Distribution: Displays the number of tokens in each chunk, highlighting outliers and uneven segmentation.}
+    \label{fig:tcd}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{top.png}
+    \caption{Top Words Before Stopword Removal: Bar chart of most frequent words including common words, showing overall frequency patterns.}
+    \label{fig:top}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{image.png}
+    \caption{Top Words After Stopword Removal: Highlights meaningful words after removing stopwords, emphasizing key legal terms.}
+    \label{fig:top_after}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{bigram.png}
+    \caption{Top Bigrams: Displays the most common two-word combinations, revealing repeated phrases in legal text.}
+    \label{fig:bigram}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{trigram.png}
+    \caption{Top Trigrams: Shows the most frequent three-word combinations in the dataset, highlighting important legal expressions.}
+    \label{fig:trigram}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{cloud.png}
+    \caption{Word Cloud: A visual representation of the most frequent words in the dataset, with larger words representing more frequent terms.}
+    \label{fig:cloud}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{chunk.png}
+    \caption{Chunk Size Distribution: This histogram illustrates the distribution of chunk sizes in terms of token counts, helping to assess the average size of text chunks used in the dataset.}
+    \label{fig:chunk_size}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{quality.png}
+    \caption{Chunk Quality: This bar plot categorizes the chunks as too short, too long, or of good quality based on their token count, providing insight into the quality of the text segmentation.}
+    \label{fig:quality}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{tfidf.png}
+    \caption{Top TF-IDF Keywords: This bar plot shows the top keywords based on the Term Frequency-Inverse Document Frequency (TF-IDF) score, helping to identify the most significant words in the dataset.}
+    \label{fig:tfidf}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{heatmap.png}
+    \caption{Cosine Similarity Heatmap: This heatmap visualizes the cosine similarity between samples in the dataset, highlighting how similar different chunks are to each other.}
+    \label{fig:heatmap}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{pca.png}
+    \caption{Cluster Visualization (PCA): This scatter plot shows the result of performing PCA on the dataset, visualizing how chunks group together into clusters based on semantic similarity.}
+    \label{fig:pca}
+\end{figure}
+
+\newpage
+
+\section{Results \& Insights}
+
+\subsection{Key Insights}
+\begin{itemize}
+    \item The average token size across documents was found to be moderate, with most tokens falling within a reasonable range for legal text.
+    \item The vocabulary richness is relatively high, indicating diverse language usage.
+    \item Chunk quality was consistent, with few outliers, ensuring the dataset is suitable for further processing.
+    \item Clustering and similarity analysis revealed meaningful groupings of related legal sections, which can be useful for RAG-based retrieval.
+\end{itemize}
+
+\section{Discussion}
+The preprocessing steps undertaken were crucial in ensuring that the dataset was of high quality and suitable for downstream NLP tasks. Data cleaning, feature engineering, and exploratory analysis all contributed to improving the quality of embeddings, which are critical for effective retrieval and generation. However, processing legal text presents unique challenges due to the complexity of legal language, which may require additional fine-tuning of the preprocessing pipeline.
+
+\section{Conclusion}
+In Deliverable 1, significant progress was made in defining the problem and acquiring and preprocessing the data for the legal documents. The dataset is now ready for further processing, and the next phase will involve integrating Retrieval-Augmented Generation (RAG) techniques to improve the retrieval and generation of legal information.
+
+\newpage
+
+\section{References}
+\begin{enumerate}
+    \item Lewis, M., et al. (2020). \textit{Retrieval-augmented generation for knowledge-intensive NLP tasks}. arXiv:2005.11401.
+    \item Jones, S., \& Smith, A. (2021). \textit{An Introduction to TF-IDF in Information Retrieval}. Journal of Data Science, 15(2), 75--90.
+    \item Vaswani, A., et al. (2017). \textit{Attention is all you need}. In Advances in Neural Information Processing Systems (NeurIPS 2017).
+    \item Bird, S., et al. (2009). \textit{Natural Language Processing with Python}. O'Reilly Media.
+\end{enumerate}
+
+\end{document}

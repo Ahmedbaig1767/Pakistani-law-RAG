@@ -1,0 +1,18 @@
+question,answer_preview,faithfulness,answer_relevancy,context_recall,sources_found
+What is the punishment for murder under Section 302 PPC?,Not found in the provided context.,0.0,0.0,0.8999999999999999,5.0
+Can police arrest a person without a warrant in Pakistan?,The provided legal context does not directly address whether the police can arrest a person without a warrant in Pakista,0.727,1.0,0.75,5.0
+What are the fundamental rights in the Constitution of Pakistan?,"The Constitution of Pakistan guarantees fundamental rights. These include:
+
+*   **Equality of status, of opportunity, an",0.4,1.0,0.46799999999999997,5.0
+What is the definition of theft under Pakistani law?,"The provided legal context does not contain a definition of theft. However, it mentions theft in relation to the right o",1.0,1.0,0.75,5.0
+What does Article 25 say about equality of citizens?,"Article 25 of the Constitution of Pakistan states the following regarding the equality of citizens:
+
+*   **(1)** All cit",1.0,0.666,1.0,5.0
+What is the procedure for filing an FIR in Pakistan?,Not found in the provided context.,0.0,0.0,0.21449999999999997,5.0
+What are bail conditions for non-bailable offences?,"In cases of non-bailable offences, bail may be granted under certain conditions as outlined in Section 497 of the Crimin",0.8,1.0,0.30000000000000004,5.0
+What is the punishment for robbery under PPC?,"Under the Pakistan Penal Code (PPC), the punishment for robbery is detailed in Section 392.
+
+According to Section 392 of",0.889,1.0,0.8340000000000001,5.0
+What is the punishment for kidnapping under PPC?,"Under the Pakistan Penal Code (PPC), the punishment for kidnapping depends on the specific circumstances and intent behi",0.556,1.0,1.0,5.0
+What does Section 109 PPC say about abetment?,Section 109 of the Pakistan Penal Code (PPC) deals with the punishment for abetment when the act that was abetted is com,1.0,0.4,0.546,5.0
+*** MEAN ***,,0.637,0.707,0.676,5.0

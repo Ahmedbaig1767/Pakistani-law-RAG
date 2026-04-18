@@ -1,0 +1,62 @@
+[
+  {
+    "doc_name": "constitution",
+    "missing_values": {
+      "before": 222,
+      "after": 222,
+      "removed_missing": 0
+    },
+    "duplicates": {
+      "before": 222,
+      "after": 222,
+      "removed_duplicates": 0
+    },
+    "outliers": {
+      "before": 222,
+      "after": 222,
+      "too_short": 0,
+      "too_long": 0,
+      "total_removed_outliers": 0
+    }
+  },
+  {
+    "doc_name": "ppc",
+    "missing_values": {
+      "before": 178,
+      "after": 177,
+      "removed_missing": 1
+    },
+    "duplicates": {
+      "before": 177,
+      "after": 177,
+      "removed_duplicates": 0
+    },
+    "outliers": {
+      "before": 177,
+      "after": 177,
+      "too_short": 0,
+      "too_long": 0,
+      "total_removed_outliers": 0
+    }
+  },
+  {
+    "doc_name": "crpc",
+    "missing_values": {
+      "before": 290,
+      "after": 290,
+      "removed_missing": 0
+    },
+    "duplicates": {
+      "before": 290,
+      "after": 290,
+      "removed_duplicates": 0
+    },
+    "outliers": {
+      "before": 290,
+      "after": 290,
+      "too_short": 0,
+      "too_long": 0,
+      "total_removed_outliers": 0
+    }
+  }
+]

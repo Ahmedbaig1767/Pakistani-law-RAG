@@ -1,0 +1,46 @@
+# PDF datasets
+*.pdf
+
+# Environment/API keys
+.env
+*.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+<<<<<<< HEAD
+
+# Virtual environments (VERY IMPORTANT)
+.venv/
+venv/
+lexfusion_env/
+
+# Large binaries / ML files
+*.dll
+*.pyd
+*.pt
+*.bin
+=======
+.venv/
+venv/
+>>>>>>> abf26ca4aa28f28a59497287db66ea7932710fb6
+
+# Vector DB files
+*.faiss
+*.pkl
+chroma_db/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# data folder
+<<<<<<< HEAD
+data/raw/
+=======
+data/raw
+>>>>>>> abf26ca4aa28f28a59497287db66ea7932710fb6
