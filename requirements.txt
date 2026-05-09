@@ -4,3 +4,5 @@ chromadb
 rank-bm25
 google-genai==1.5.0
 python-dotenv
+protobuf==3.20.3
+grpcio==1.60.0
