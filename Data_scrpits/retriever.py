@@ -48,18 +48,20 @@ from rank_bm25 import BM25Okapi
 
 
 # ─────────────────────────────────────────────
-# Config
+# Config — Cloud-Ready Paths
 # ─────────────────────────────────────────────
 
-CHUNKS_PATH  = "data/chunks/all_chunks.json"
-VECTORSTORE  = "data/vectorstore"
+from pathlib import Path
+
+# Resolves correctly both locally and on Streamlit Cloud
+# __file__ = retriever.py location (project root)
+ROOT         = Path(__file__).resolve().parent
+CHUNKS_PATH  = str(ROOT / "data" / "chunks" / "all_chunks.json")
+VECTORSTORE  = str(ROOT / "data" / "vectorstore")
 COLLECTION   = "legal_docs"
 MODEL_NAME   = "sentence-transformers/all-MiniLM-L6-v2"
 
 # Hybrid Search Weights
-# Tune these if results are off:
-#   More weight on SEMANTIC → better for natural language queries
-#   More weight on KEYWORD  → better for specific legal terms/sections
 SEMANTIC_WEIGHT = 0.6
 KEYWORD_WEIGHT  = 0.4
 
