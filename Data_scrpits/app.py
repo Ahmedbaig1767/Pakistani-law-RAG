@@ -1,33 +1,21 @@
 # ============================================================
-#   app.py
-#   Phase 7 — Streamlit Side-by-Side UI
-#
-#   Requirement 4: Side-by-Side view
-#     Left panel  → AI answer with citations
-#     Right panel → Exact legal text snippets retrieved
-#
 #   Uses YOUR existing:
 #     - retriever.py  → hybrid search
 #     - llm.py        → Gemini answer generation
 # ============================================================
-
 import html
 import os
 import re
 import sys
 from pathlib import Path
-
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-
 load_dotenv()
-
 # ─────────────────────────────────────────────
 # Add Data_scrpits to path
 # ─────────────────────────────────────────────
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "Data_scrpits"))
-
 # ─────────────────────────────────────────────
 # Page config
 # ─────────────────────────────────────────────

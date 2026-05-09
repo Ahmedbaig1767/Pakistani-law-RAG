@@ -74,7 +74,6 @@ def remove_duplicates(pages):
 
     after = len(unique_pages)
     removed = before - after
-
     stats = {
         "before":            before,
         "after":             after,
@@ -125,8 +124,6 @@ def remove_outliers(pages, min_words=10, max_words=1000):
 
     print(f"  [Outliers]       Before: {before} | Too short: {too_short} | Too long: {too_long} | After: {after}")
     return filtered, stats
-
-
 # ─────────────────────────────────────────────
 # STEP 4 — Clean text noise
 # ─────────────────────────────────────────────
