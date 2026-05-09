@@ -1,31 +1,6 @@
-# LexFusion — Pakistani Law RAG System
-# Install with: pip install -r requirements.txt
-
-# Core RAG
-rank-bm25>=0.2.2
-sentence-transformers>=2.7.0
-faiss-cpu>=1.8.0
-
-# LLM (free tier)
-groq>=0.9.0
-
-# Evaluation
-ragas>=0.1.14
-datasets>=2.20.0
-langchain-groq>=0.1.6
-langchain-huggingface>=0.0.3
-
-# UI
-streamlit>=1.36.0
-
-# Data
-pandas>=2.0.0
-numpy>=1.26.0
-pdfplumber>=0.11.0
-
-# Existing dependencies (from Phase 2)
-nltk>=3.8.0
-scikit-learn>=1.4.0
-matplotlib>=3.8.0
-seaborn>=0.13.0
-wordcloud>=1.9.0
+streamlit
+sentence-transformers
+chromadb
+rank-bm25
+google-genai==1.5.0
+python-dotenv
