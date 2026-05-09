@@ -1,18 +1,48 @@
-question,answer_preview,faithfulness,answer_relevancy,context_recall,sources_found
-What is the punishment for murder under Section 302 PPC?,Not found in the provided context.,0.0,0.0,0.8999999999999999,5.0
-Can police arrest a person without a warrant in Pakistan?,The provided legal context does not directly address whether the police can arrest a person without a warrant in Pakista,0.727,1.0,0.75,5.0
-What are the fundamental rights in the Constitution of Pakistan?,"The Constitution of Pakistan guarantees fundamental rights. These include:
+question,document,difficulty,answer_preview,top_source,sources_found,faithfulness,answer_relevancy,context_recall,context_precision,avg_score
+What is the state religion of Pakistan?,constitution,easy,"Islam is the state religion of Pakistan, as stated in Article 2 of the Constitution of Pakistan. This article explicitly declares, ""islam shall be the",Article 2 - islam to be state religion,5.0,1.0,1.0,1.0,0.8,0.95
+What are the fundamental rights guaranteed by the Constitution of Paki,constitution,medium,"The Constitution of Pakistan guarantees fundamental rights, including:
 
-*   **Equality of status, of opportunity, an",0.4,1.0,0.46799999999999997,5.0
-What is the definition of theft under Pakistani law?,"The provided legal context does not contain a definition of theft. However, it mentions theft in relation to the right o",1.0,1.0,0.75,5.0
-What does Article 25 say about equality of citizens?,"Article 25 of the Constitution of Pakistan states the following regarding the equality of citizens:
+*   **Equality of status, of opportunity, and before law:** This means that al",Article 280 - continuance of proclamation of emergency,5.0,0.0,0.833,0.474,0.2,0.377
+What does Article 25 say about equality of citizens?,constitution,easy,"Article 25 of the Constitution of Pakistan states the following regarding the equality of citizens:
 
-*   **(1)** All cit",1.0,0.666,1.0,5.0
-What is the procedure for filing an FIR in Pakistan?,Not found in the provided context.,0.0,0.0,0.21449999999999997,5.0
-What are bail conditions for non-bailable offences?,"In cases of non-bailable offences, bail may be granted under certain conditions as outlined in Section 497 of the Crimin",0.8,1.0,0.30000000000000004,5.0
-What is the punishment for robbery under PPC?,"Under the Pakistan Penal Code (PPC), the punishment for robbery is detailed in Section 392.
+*   **(1)** All citizens are equal before the law",Article 24 - protection of property rights (part 2),5.0,1.0,0.833,1.0,0.4,0.808
+How is the Prime Minister of Pakistan elected?,constitution,medium,"The Prime Minister of Pakistan is elected by the National Assembly. After the election of the Speaker and Deputy Speaker, the National Assembly procee",Article 260 - definitions (part 3),5.0,0.8,1.0,1.0,0.6,0.85
+What is high treason under the Constitution of Pakistan?,constitution,medium,"Under the Constitution of Pakistan, high treason is defined in Article 6.
 
-According to Section 392 of",0.889,1.0,0.8340000000000001,5.0
-What is the punishment for kidnapping under PPC?,"Under the Pakistan Penal Code (PPC), the punishment for kidnapping depends on the specific circumstances and intent behi",0.556,1.0,1.0,5.0
-What does Section 109 PPC say about abetment?,Section 109 of the Pakistan Penal Code (PPC) deals with the punishment for abetment when the act that was abetted is com,1.0,0.4,0.546,5.0
-*** MEAN ***,,0.637,0.707,0.676,5.0
+According to Article 6, Clause (1), any person who commits any of the follo",Article 6 - high treason,5.0,0.636,1.0,0.818,0.2,0.664
+What safeguards does the Constitution provide against arrest and deten,constitution,medium,"The Constitution of Pakistan provides several safeguards against arrest and detention, as outlined in Article 10.
+
+Firstly, **Article 10(1)** states t",Article 10 - safeguards as to arrest and detention,5.0,0.409,1.0,1.0,0.8,0.802
+What does Article 19 say about freedom of speech?,constitution,easy,Article 19 of the Constitution of Pakistan states that every citizen has the right to freedom of speech and expression. It also guarantees freedom of ,Article 19 - freedom of speech etc.,5.0,1.0,0.833,1.0,0.4,0.808
+What is the procedure for election of the President of Pakistan?,constitution,hard,"The President of Pakistan is elected by members of an electoral college. This electoral college is made up of:
+
+*   Members of both houses of the Parl",Article 41 - the president,5.0,0.923,1.0,1.0,0.8,0.931
+Can fundamental rights be suspended during an emergency in Pakistan?,constitution,hard,"Yes, fundamental rights can be suspended during an emergency period in Pakistan.
+
+Article 233 of the Constitution of Pakistan outlines the power to su",Article 233 - power to suspend fundamental rights etc. durin,5.0,1.0,1.0,1.0,0.2,0.8
+What does Article 14 say about the dignity of man?,constitution,easy,"Article 14 of the Constitution of Pakistan states that the dignity of man is inviolable. Additionally, the privacy of home is also inviolable, subject",Article 14 - inviolability of dignity of man etc.,5.0,1.0,0.833,1.0,0.2,0.758
+What is the punishment for murder under Section 302 PPC?,ppc,easy,Not found in the provided context.,Section 108 - abettor. a person abets an offence who abets e,5.0,0.0,0.0,0.655,0.2,0.214
+What is the definition of theft under the Pakistan Penal Code?,ppc,easy,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Section 239 - what persons may be charged jointly the follow,5.0,0.0,0.0,0.75,0.6,0.338
+What is the punishment for robbery under PPC?,ppc,medium,"Under the Pakistan Penal Code (PPC), the punishment for robbery is detailed in Section 392.
+
+According to Section 392 of the PPC, whoever commits robb",Section 392 - punishment for robbery. whoever commits robber,5.0,0.889,1.0,1.0,1.0,0.972
+What does Section 109 PPC say about punishment of abetment?,ppc,medium,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Section 109 - punishment of abetment if the act abetted is c,5.0,0.0,0.0,1.0,0.4,0.35
+What is the punishment for kidnapping under PPC?,ppc,medium,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Section 363 - punishments for kidnapping.,5.0,0.0,0.0,1.0,0.8,0.45
+What is waging war against Pakistan under PPC?,ppc,medium,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Section 121 - waging or attempting to wage war or abetting w,5.0,0.0,0.0,1.0,0.8,0.45
+What is the legal defence of unsound mind under PPC?,ppc,hard,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Section 98 - right of private defence against the act of a p,5.0,0.0,0.0,0.75,0.8,0.388
+What does Section 34 PPC say about common intention?,ppc,medium,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Section 34 - acts done by several persons in furtherance of ,5.0,0.0,0.0,1.0,0.4,0.35
+What is the right of private defence of body under Section 100 PPC?,ppc,hard,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Section 102 - commencement and continuance of the right of p,5.0,0.0,0.0,0.771,1.0,0.443
+What is the punishment for criminal intimidation under Section 506 PPC,ppc,easy,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Section 506 - punishment for criminal intimidation. whoever ,5.0,0.0,0.0,1.0,0.8,0.45
+Can police arrest a person without a warrant in Pakistan?,crpc,easy,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Section 81 - person arrested to be brought before court with,5.0,0.0,0.0,0.853,0.8,0.413
+What is the procedure for filing an FIR in Pakistan?,crpc,easy,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Article 67 - rules of procedure etc.,5.0,0.0,0.0,0.212,0.6,0.203
+What are the bail conditions for non-bailable offences in Pakistan?,crpc,medium,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Section 497 - when bail may be taken in case of non-bailable,5.0,0.0,0.0,0.562,0.2,0.191
+Within what time must an arrested person be produced before a magistra,crpc,easy,"Generation error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing deta",Section 81 - person arrested to be brought before court with,5.0,0.0,0.0,1.0,1.0,0.5
+What powers does a magistrate have to issue a search warrant?,crpc,medium,"A magistrate has the power to direct a search to be made in their presence of any place for which they are competent to issue a search warrant, as sta",Section 105 - magistrate may direct search in his presence a,5.0,0.25,0.938,0.6,0.6,0.597
+What is the procedure for investigation of a cognizable offence by pol,crpc,medium,"When an officer in charge of a police station receives information or otherwise suspects that a cognizable offence has been committed, and they are em",Section 157 - procedure where cognizable offence suspected (,5.0,0.533,1.0,1.0,1.0,0.883
+What is the power of magistrate to impose security for keeping the pea,crpc,hard,The provided context discusses the power of a magistrate to impose security for keeping the peace in relation to convictions and in default of giving ,Section 104 - power to impound document etc. produced.,5.0,0.56,1.0,0.9,1.0,0.865
+What does Section 144 CrPC say about urgent cases of nuisance?,crpc,hard,Section 144 of the Criminal Procedure Code (CrPC) grants a Magistrate the power to issue an order that is absolute at once in urgent cases of nuisance,Section 143 - magistrate may prohibit repetition or continua,5.0,0.75,0.938,1.0,0.6,0.822
+Can statements made to police be used as evidence in court?,crpc,medium,"Statements made to the police can be used as evidence in court, but with certain limitations.
+
+According to Section 162 of the Criminal Procedure Code",Section 162 - statements to police hot to be signed use of s,5.0,0.8,1.0,0.9,0.6,0.825
+What is the power of a commissioned military officer to disperse an un,crpc,hard,"The provided context does not directly detail the power of a commissioned military officer to disperse an unlawful assembly independently. However, it",Section 131 - power of commissioned military officer to disp,5.0,0.818,1.0,0.741,0.8,0.84
+*** OVERALL MEAN ***,all,all,,,5.0,0.412,0.54,0.866,0.62,0.61

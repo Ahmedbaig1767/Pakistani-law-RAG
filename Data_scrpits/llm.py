@@ -1,7 +1,13 @@
-
+"""
+============================================================
+  llm.py — Updated to use new google-genai package
+  Phase 6 — Answer Generation
+============================================================
+"""
 
 import os
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from dotenv import load_dotenv
 
 # ─────────────────────────────────────────────
@@ -17,7 +23,11 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 # ─────────────────────────────────────────────
 
 def load_llm():
-    
+    """
+    Configures and returns the Gemini client.
+    Uses new google-genai package instead of
+    deprecated google-generativeai.
+    """
     if not GEMINI_API_KEY:
         raise ValueError(
             "GEMINI_API_KEY not found!\n"
@@ -26,19 +36,9 @@ def load_llm():
             "3. Add to .env file: GEMINI_API_KEY=your_key_here"
         )
 
-    genai.configure(api_key=GEMINI_API_KEY)
-
-    model = genai.GenerativeModel(
-        model_name="gemini-2.5-flash-lite",
-        generation_config={
-            "temperature":     0.1,   # Low = more factual, less creative
-            "max_output_tokens": 1024, # Enough for detailed legal answers
-            "top_p":           0.8,
-        }
-    )
-
-    print("✅ Gemini 1.5 Flash loaded successfully")
-    return model
+    client = genai.Client(api_key=GEMINI_API_KEY)
+    print("✅ Gemini client loaded successfully")
+    return client
 
 
 # ─────────────────────────────────────────────
@@ -48,24 +48,17 @@ def load_llm():
 def build_prompt(query, retrieved_chunks):
     """
     Builds a clean prompt sending FULL chunk text to Gemini.
-
-    Unlike Flan-T5, Gemini can handle the full context
-    so we do NOT truncate the chunk text anymore.
+    No truncation — Gemini handles large context easily.
     """
     if not retrieved_chunks:
         return None
 
-    # Use top 3 chunks for better coverage
     top_chunks = retrieved_chunks[:3]
 
     context_blocks = []
     for i, chunk in enumerate(top_chunks, 1):
-        section  = chunk.get("section_num", "N/A")
         doc      = chunk.get("doc_name", "").upper()
         title    = chunk.get("title", "")
-
-        # Send FULL text — no truncation
-        # Gemini 1.5 Flash handles 128k tokens
         full_text = chunk["text"]
 
         context_blocks.append(
@@ -110,7 +103,7 @@ def generate_answer(query, retrieved_chunks, llm):
     Parameters:
         query            (str)  : User's legal question
         retrieved_chunks (list) : Top chunks from retriever
-        llm                     : Gemini model from load_llm()
+        llm                     : Gemini client from load_llm()
 
     Returns:
         {
@@ -127,17 +120,23 @@ def generate_answer(query, retrieved_chunks, llm):
     prompt = build_prompt(query, retrieved_chunks)
 
     try:
-        response     = llm.generate_content(prompt)
-        answer_text  = response.text.strip()
+        response = llm.models.generate_content(
+            model="gemini-2.5-flash-lite",
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                temperature=0.1,
+                max_output_tokens=1024,
+                top_p=0.8,
+            )
+        )
+        answer_text = response.text.strip()
 
-        # Sanity check — if answer is too short something went wrong
         if len(answer_text.split()) < 5:
             answer_text = "Could not generate a complete answer. Please try rephrasing your question."
 
     except Exception as e:
-        answer_text = f"Generation error: {str(e)[:100]}"
+        answer_text = f"Generation error: {str(e)[:150]}"
 
-    # Build sources list for UI display
     sources = [
         {
             "doc":   c.get("doc_name", ""),
@@ -164,7 +163,6 @@ def print_answer(query, result):
     print("=" * 70)
     print(f"\n  ANSWER:\n")
 
-    # Print answer with proper indentation
     for line in result["answer"].split("\n"):
         print(f"  {line}")
 
@@ -186,10 +184,9 @@ if __name__ == "__main__":
 
         print("\n" + "=" * 60)
         print("  Pakistani Law RAG System")
-        print("  Powered by Gemini 1.5 Flash")
+        print("  Powered by Gemini 2.5 Flash Lite")
         print("=" * 60)
 
-        # Load everything once
         print("\n  Loading resources...")
         all_chunks, embed_model, collection = load_resources()
         bm25 = build_bm25_index(all_chunks)
@@ -217,7 +214,7 @@ if __name__ == "__main__":
 
     except ImportError as e:
         print(f"\n  Missing dependency: {e}")
-        print("  Run: pip install google-generativeai python-dotenv")
+        print("  Run: pip install google-genai python-dotenv sentence-transformers")
 
     except KeyboardInterrupt:
         print("\n\n  Stopped.")
